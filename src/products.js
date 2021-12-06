@@ -9,8 +9,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 3.0,
+        numReviews: 3,
     },
     {
         _id: "2",
@@ -22,8 +22,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 4.0,
+        numReviews: 12,
     },
     {
         _id: "3",
@@ -35,8 +35,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 5.0,
+        numReviews: 10,
     },
     {
         _id: "4",
@@ -48,8 +48,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 3.0,
+        numReviews: 9,
     },
     {
         _id: "5",
@@ -61,8 +61,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 3.5,
+        numReviews: 3,
     },
     {
         _id: "6",
@@ -74,8 +74,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 4.0,
+        numReviews: 7,
     },
     {
         _id: "7",
@@ -87,8 +87,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 5.0,
+        numReviews: 11,
     },
     {
         _id: "8",
@@ -100,8 +100,8 @@ const products = [
         price: "2,450",
         countInStock: "5",
         availableSizes: ["XS", "S", "M", "L"],
-        rating: 4.5,
-        numReviews: 8,
+        rating: 2.0,
+        numReviews: 16,
     },
 ]
 
