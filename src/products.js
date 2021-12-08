@@ -20,7 +20,7 @@ const products = [
         brand: "CELINE",
         category: "Men's Winter Wear",
         price: "2,450",
-        countInStock: "5",
+        countInStock: "0",
         availableSizes: ["XS", "S", "M", "L"],
         rating: 4.0,
         numReviews: 12,

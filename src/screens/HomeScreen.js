@@ -1,17 +1,20 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import Product from '../components/Product';
+import Product from "../components/Product";
 import products from "../products";
 
 //LOOP THROUGH ALL PRODUCTS AND OUTPUT EACH ONE
 const HomeScreen = () => {
   return (
     <>
+      <h1 className="text-center">
+        <i className="fab fa-pushed"></i>NERO
+      </h1>
       <h4>Latest Products</h4>
       <Row>
         {products.map((product) => (
           <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-            <Product product={product}/>
+            <Product product={product} />
           </Col>
         ))}
       </Row>
