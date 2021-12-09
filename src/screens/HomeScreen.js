@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
-import products from "../products";
+import axios from 'axios';
+// import products from "../products";
 
 //LOOP THROUGH ALL PRODUCTS AND OUTPUT EACH ONE
 const HomeScreen = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get('/api/products')
+      // SIMILAR TO RES.DATA -> DESTRUCTURED
+      setProducts(data)
+    }
+    fetchProducts()
+  },[])
+
   return (
     <>
       <h1 className="text-center">

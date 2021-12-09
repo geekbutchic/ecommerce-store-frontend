@@ -1,5 +1,6 @@
-import React from "react";
-import products from "../products";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+// import products from "../products";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
@@ -13,10 +14,22 @@ import {
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 
-function ProductScreen() {
-  const match = useParams();
+const ProductScreen = ({ match }) => {
+  // const match = useParams();
+  // const product = products.find((p) => p._id === match.id);
+  const [product, setProduct] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(
+        `/api/products/${encodeURIComponent(id)}`
+      );
 
-  const product = products.find((p) => p._id === match.id);
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, [id]);
 
   return (
     <>
@@ -69,10 +82,10 @@ function ProductScreen() {
                 </Row>
               </ListGroupItem>
               <ListGroupItem>
-                <Button 
-                className="w-100 rounded" 
-                type="button"
-                disabled={product.countInStock === 0}
+                <Button
+                  className="w-100 rounded"
+                  type="button"
+                  disabled={product.countInStock === 0}
                 >
                   Add To Cart
                 </Button>
@@ -83,6 +96,6 @@ function ProductScreen() {
       </Row>
     </>
   );
-}
+};
 
 export default ProductScreen;
