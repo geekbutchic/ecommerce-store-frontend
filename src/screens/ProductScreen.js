@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import products from "../products";
+import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
@@ -11,10 +12,12 @@ import {
   Card,
   Button,
   ListGroupItem,
+  Form,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 
 const ProductScreen = ({ match }) => {
+  const [qty, setQty] = useState(0);
   // const match = useParams();
   // const product = products.find((p) => p._id === match.id);
   const [product, setProduct] = useState({});
@@ -30,6 +33,12 @@ const ProductScreen = ({ match }) => {
 
     fetchProduct();
   }, [id]);
+  
+  const navigate = useNavigate();
+  
+  const addToCartHandler = () => {
+    navigate(`/cart/${match.params.id}?qty=${qty}`)
+  }
 
   return (
     <>
@@ -81,8 +90,28 @@ const ProductScreen = ({ match }) => {
                   </Col>
                 </Row>
               </ListGroupItem>
+              {product.countInStock > 0 && (
+                <ListGroupItem>
+                  <Row>
+                    <Col>Qty</Col>
+                    <Col>
+                      <Form.Control
+                        as="select"
+                        value={qty}
+                        onChange={(e) => setQty(e.target.value)}>
+                          {[...Array(product.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                      </Form.Control>
+                    </Col>
+                  </Row>
+                </ListGroupItem>
+              )}
               <ListGroupItem>
                 <Button
+                  onClick={addToCartHandler}
                   className="w-100 rounded"
                   type="button"
                   disabled={product.countInStock === 0}
